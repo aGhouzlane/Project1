@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Project1.Data.Flight>
+
+@{
+    ViewData["Title"] = "Flight";
+}
+
+<div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-6">
+        <img src="~/img/flight.jpg" width="300" height="300" alt="passenger" />
+        <div style="text-align: center; border: solid; border-radius: 5px; padding: 7px; width: 300px; margin-top:5px;">
+            <a class="navbar-brand" asp-controller="Flights" asp-action="Create">Add a flight</a>
+        </div>
+    </div>
+    <div class="col-md-6"></div>
+        <hr />
+        <table>
+            <tr style="background-color: #dafce3;">
+                <th style="border-top: solid; padding: 10px;">@Html.DisplayNameFor(model => model.FlightNumber)</th>
+                <th style="border-top: solid; padding: 10px;">@Html.DisplayNameFor(model => model.DepartureDate)</th>
+                <th style="border-top: solid; padding: 10px;">@Html.DisplayNameFor(model => model.ArrivalDate)</th>
+                <th style="border-top: solid; padding: 10px;">@Html.DisplayNameFor(model => model.DepartureTime)</th>
+                <th style="border-top: solid; padding: 10px;">@Html.DisplayNameFor(model => model.ArrivalTime)</th>
+                <th style="border-top: solid; padding: 10px;">@Html.DisplayNameFor(model => model.DepartureAirport)</th>
+                <th style="border-top: solid; padding: 10px;">@Html.DisplayNameFor(model => model.ArrivalAirport)</th>
+                <th style="border-top: solid; padding: 10px;">@Html.DisplayNameFor(model => model.BookingNumber)</th>
+            </tr>
+            @foreach (var flight in Model)
+            {
+                <tr>
+                    <td style="border-top: solid; padding: 10px;">@Html.DisplayFor(modelItem => flight.FlightNumber)</td>
+                    <td style="border-top: solid; padding: 10px;">@Html.DisplayFor(modelItem => flight.DepartureDate)</td>
+                    <td style="border-top: solid; padding: 10px;">@Html.DisplayFor(modelItem => flight.ArrivalDate)</td>
+                    <td style="border-top: solid; padding: 10px;">@Html.DisplayFor(modelItem => flight.DepartureTime)</td>
+                    <td style="border-top: solid; padding: 10px;">@Html.DisplayFor(modelItem => flight.ArrivalTime)</td>
+                    <td style="border-top: solid; padding: 10px;">@Html.DisplayFor(modelItem => flight.DepartureAirport)</td>
+                    <td style="border-top: solid; padding: 10px;">@Html.DisplayFor(modelItem => flight.ArrivalAirport)</td>
+                    <td style="border-top: solid; padding: 10px;">@Html.DisplayFor(modelItem => flight.BookingNumber)</td>
+                    <td style="border-top: solid; padding: 10px;">@Html.ActionLink("Details", "Details", new { id = flight.FlightId })</td>
+                    <td style="border-top: solid; padding: 10px;">@Html.ActionLink("Delete", "Delete", new { id = flight.FlightId })</td>
+                </tr>
+            }
+        </table>
+
+    </div>
+

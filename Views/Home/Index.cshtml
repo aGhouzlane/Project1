@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+        <img src="~/img/passenger.jpg" width="350" height="350" alt="passenger" />
+        <hr />
+        <div style="text-align: center;">
+            <b>@Html.ActionLink("View all passengers", "Index", "Passengers")</b>
+        </div>
+        <hr />
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+        <img src="~/img/flight.jpg" width="350" height="350" alt="flight" />
+        <hr />
+        <div style="text-align: center;">
+            <b>@Html.ActionLink("View all flights", "Index", "Flights")</b>
+        </div>
+        <hr />
+    </div>
+</div>
