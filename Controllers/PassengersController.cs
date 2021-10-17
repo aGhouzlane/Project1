@@ -33,10 +33,10 @@ namespace Project1.Web.Controllers
             return View(model);
         }
 
+ 
         // GET: PassengersController/Create
         public ActionResult Create()
         {
-            ViewBag.FlightId = new SelectList(_flightADO.GetFlights(), "FlightId", "FlightNumber");
             return View();
         }
 
@@ -62,11 +62,12 @@ namespace Project1.Web.Controllers
 
         // POST: PassengersController/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, [Bind] Passenger passenger)
+        public ActionResult Edit(int id, [Bind] Passenger passenger, int flightId)
         {
             if (ModelState.IsValid)
             {
                 _passengerADO.UpdatePassenger(id, passenger);
+                _passengerADO.InsertFlight(id, flightId);
                 return RedirectToAction("Index");
             }
             return View(passenger);

@@ -4,36 +4,35 @@
     ViewData["Title"] = "Details";
 }
 <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-12">
+        <a class="btn btn-primary" asp-controller="Passengers" asp-action="Create">Add a passenger</a>
     </div>
-    <div class="col-md-4">
-        <img src="~/img/passenger.jpg" width="350" height="350" alt="passenger" />
-        <hr />
-        <div style="text-align: center; border: solid; border-radius: 5px; padding: 7px;">
-            <a class="navbar-brand" asp-controller="Passengers" asp-action="Create">Add a passenger</a>
-        </div>
-    </div>
-    <div class="col-md-1"></div>
-   
-        <table>
-            <tr style="background-color: #ccffd0;">
-                <th style="border-top: solid; padding: 10px;">@Html.DisplayNameFor(model => model.Name)</th>
-                <th style="border-top: solid; padding: 10px;">@Html.DisplayNameFor(model => model.Job)</th>
-                <th style="border-top: solid; padding: 10px;">@Html.DisplayNameFor(model => model.Email)</th>
-                <th style="border-top: solid; padding: 10px;">@Html.DisplayNameFor(model => model.Age)</th>
-            </tr>
-            @foreach (var passenger in Model)
-            {
+    <hr />
+    <div class="col-md-12">
+        <table class="styled-table">
+            <thead>
                 <tr>
-                    <td style="border-top: solid; padding: 10px;">@Html.DisplayFor(modelItem => passenger.Name)</td>
-                    <td style="border-top: solid; padding: 10px;">@Html.DisplayFor(modelItem => passenger.Job)</td>
-                    <td style="border-top: solid; padding: 10px;">@Html.DisplayFor(modelItem => passenger.Email)</td>
-                    <td style="border-top: solid; padding: 10px;">@Html.DisplayFor(modelItem => passenger.Age)</td>
-                    <td style="border-top: solid; padding: 10px;">@Html.ActionLink("Details", "Details", new { id = passenger.PassengerId })</td>
-                    <td style="border-top: solid; padding: 10px;">@Html.ActionLink("Delete", "Delete", new { id = passenger.PassengerId })</td>
+                    <th>@Html.DisplayNameFor(model => model.Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.Job)</th>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <th>@Html.DisplayNameFor(model => model.Age)</th>
+                    <th></th>
+                    <th></th>
                 </tr>
-            }
+            </thead>
+            <tbody>
+                @foreach (var passenger in Model)
+                {
+                    <tr class="active-row">
+                        <td>@Html.DisplayFor(modelItem => passenger.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => passenger.Job)</td>
+                        <td>@Html.DisplayFor(modelItem => passenger.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => passenger.Age)</td>
+                        <td>@Html.ActionLink("Details", "Details", new { id = passenger.PassengerId })</td>
+                        <td>@Html.ActionLink("Delete", "Delete", new { id = passenger.PassengerId })</td>
+                    </tr>
+                }
+            </tbody>
         </table>
-    
-    <div class="col-md-2"></div>
+    </div>
 </div>
